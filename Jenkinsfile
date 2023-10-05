@@ -10,7 +10,7 @@ pipeline{
         }
         stage('Test'){
             steps{
-
+                echo 'Testing code from Thanhlam43k4 GitHub'
             }
         }
         stage('Build'){
@@ -21,12 +21,12 @@ pipeline{
         }
         stage('Push Image to Docker Hub'){
             steps{
-
+                echo 'Pulling code from Thanhlam43k4 GitHub'
             }
         }
         stage('Deploy to K8S'){
             steps{
-
+                echo 'Pulling code from Thanhlam43k4 GitHub'
             }
         }
 
