@@ -2,8 +2,11 @@ pipeline{
     agent any
     stages{
         stage('Git Checkout'){
+            steps{
+                
                 git 'https://github.com/Thanhlam43k4/Dockerize-Application-with-Database.git'
                 echo 'Pulling code from Thanhlam43k4 GitHub'
+            }
         }
         stage('Test'){
             steps{
