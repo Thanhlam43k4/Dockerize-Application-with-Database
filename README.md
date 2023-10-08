@@ -1,4 +1,4 @@
-# Dockerize-Application-with-Database MySQL
+# Dockerize-Application-with-Database MySQL And CI by Jenkins
 
 
 
@@ -10,6 +10,7 @@
 + Nodejs web application and MySQL Database (Dependencies: Express, Mysql2).
 + Download Docker, Docker-compose, DockerFile.
 + PHPMYADMIN to managing MYSQL and MariaDB databases.
++ DockerHub account
 
 STEPS:
 
@@ -37,6 +38,27 @@ STEPS:
 
 
 
+ ** Use Jenkins Pipeline to Continous Integration.**
+  These are Steps in Jenkins Pipeline:
+
+ + Step1 : Pulling Code From Github
+
+ + Step2 : Build Docker image with name app_nodejs in this dir //You can change
+
+ + Step3 : Testing application (I'll update soon)
+
+ + Step4 : Push This image to your DockerHub (In my case I push to my Dockerhub account, you must change it)
+
+ + Step5 : You can run application in your local computer use "docker compose up"
+
+ + Step 6: Deploy to K8s local (I'll update it soon).
+
+   > SuccessFully Set up and Start to use your application !!!!
+
   >>This is a simple project for you to can start with your Devops RoadMap.
+
+
+
+Author: NguyenThanhlam K67K2UET
 
 
