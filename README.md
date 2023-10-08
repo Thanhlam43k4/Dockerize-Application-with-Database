@@ -5,7 +5,7 @@
         Dockerize Web application with docker 
 
 --Prequesites:
-
+<img align = "right" alt = "coding" width = "250" src = "https://topdev.vn/blog/wp-content/uploads/2019/05/jenkins.png" >
 
 + Nodejs web application and MySQL Database (Dependencies: Express, Mysql2).
 + Download Docker, Docker-compose, DockerFile.
