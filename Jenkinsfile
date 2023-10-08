@@ -1,34 +1,45 @@
 pipeline{
     agent any
     stages{
-        stage('Git Checkout'){
+        stage('Git Pulling Code'){
             steps{
-                
-                git 'https://github.com/Thanhlam43k4/Dockerize-Application-with-Database.git'
-                echo 'Pulling code from Thanhlam43k4 GitHub'
+                echo 'Pulling code from GitHub.....'
+                git 'https://github.com/Thanhlam43k4/Dockerize-Application-with-Database-MySQL.git'
             }
         }
-        stage('Test'){
+        
+        stage('Build Docker image'){
             steps{
-                echo 'Testing code from Thanhlam43k4 GitHub'
+                sh 'docker build -t app_nodejs .' //Build app with image --name app_nodejs;
             }
         }
-        stage('Build'){
+        stage('Testing'){
             steps{
-                sh 'docker compose build'
-                sh 'docker compose up -d'
+                // sh 'npm install'
+                // sh 'npm --version'
+                // sh 'node --version'
+                echo 'Testing stage .....'
             }
         }
         stage('Push Image to Docker Hub'){
             steps{
-                echo 'Pulling code from Thanhlam43k4 GitHub'
+                withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://index.docker.io/v1/') {
+                  sh 'docker build -t thanhlam2k4/nodejs_app .'
+                  sh 'docker push thanhlam2k4/nodejs_app'
+                }    
             }
         }
-        stage('Deploy to K8S'){
+        stage('Run application in Local'){
             steps{
-                echo 'Pulling code from Thanhlam43k4 GitHub'
+                // sh 'docker compose up'      //You can uncomment to run it on your local machine
             }
         }
-
+        stage("Deploy to my Kubernetes Cluster Locally using Minikube"){
+            steps{
+                script{
+                    kubernetesDeploy(configs: "deploymentservice.yml",kubeconfigId:"kubernetes")   //Something error because  K8scontinous deploy plugin was suspended
+                }
+            }
+        }
     }
 }
