@@ -1,4 +1,4 @@
-# Dockerize-Application-with-Database MySQL And CI by Jenkins
+# Dockerize-Application-with-Database MySQL And Continuous Integration by Jenkins
 
 
 
@@ -38,7 +38,7 @@ STEPS:
 
 
 
- ** Use Jenkins Pipeline to Continous Integration.**
+ ** Use Jenkins Pipeline to Continuous Integration.**
   These are Steps in Jenkins Pipeline:
 
  + Step1 : Pulling Code From Github
